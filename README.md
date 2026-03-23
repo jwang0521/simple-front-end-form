@@ -20,8 +20,12 @@ This is a basic login form inspired from OAWSP Juice Shop for CSCE 477 homework 
 - Built with Node.js + Express
 - server side validation:
   - same checks as client
-  - verifies credentials
+  - re-validates all input to prevent bypass of client-side checks
 - SQLite database for storing user credentials
+- applies parameterized queries to prevent SQL Injection attacks
+- includes basic input sanitization to reduce XSS risks
+- stores passwords securely using bcrypt hashing with salt
+- verifies user credentials by comparing hashed passwords during login
 
 ## how to run
 
