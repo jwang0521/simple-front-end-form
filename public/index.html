@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Login</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f8;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+
+      form {
+        padding: 25px 30px;
+        border-radius: 8px;
+        background: white;
+        width: 280px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        margin-bottom: 15px;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+      }
+
+      input:focus {
+        border-color: #000000;
+        outline: none;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #2f6b3f;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      button:hover {
+        background-color: #7fb77e;
+      }
+    </style>
+    <script>
+      function validateForm() {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        if (!email || !password) {
+          alert("Fields cannot be empty");
+          return false;
+        }
+        if (!email.includes("@")) {
+          alert("Invalid email");
+          return false;
+        }
+        if (password.length < 8) {
+          alert("Password must be at least 8 characters");
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </head>
+
+  <body>
+    <form method="POST" action="/login">
+      <h2>Login</h2>
+      <input type="text" id="email" name="email" placeholder="Email" /><br />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Password"
+      /><br />
+      <button type="submit">Login</button>
+    </form>
+  </body>
+</html>
